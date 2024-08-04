@@ -70,19 +70,15 @@
     description = "brandon";
     extraGroups = [ "wheel" ];
     packages = with pkgs; [
-      neovim
-      git
     ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    git
     neovim
   ];
-
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -93,6 +89,7 @@
   # };
 
   # List services that you want to enable:
+  services.getty.autologinUser = "bhubache";
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

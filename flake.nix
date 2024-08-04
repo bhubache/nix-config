@@ -11,20 +11,35 @@
       # problems caused by having different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.my-nixos = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, ... }@inputs:
+    let
       system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-	inputs.home-manager.nixosModules.home-manager
-	{
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-	  home-manager.users.bhubache = import ./home.nix;
-	}
-      ];
-    };
+      pkgs = import nixpkgs {
+        inherit system;
+      };
+    in {
+      nixosConfigurations.my-nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+	  inputs.home-manager.nixosModules.home-manager
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.bhubache = import ./home.nix;
+	    home-manager.sharedModules = [
+	      inputs.nixvim.homeManagerModules.nixvim
+	    ];
+	  }
+        ];
+      };
   };
 }
