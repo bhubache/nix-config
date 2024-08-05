@@ -6,10 +6,9 @@
   home.username = "bhubache";
   home.homeDirectory = "/home/bhubache";
 
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-  };
+  imports = [
+    ./neovim/default.nix
+  ];
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -23,6 +22,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.ripgrep
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
