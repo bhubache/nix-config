@@ -15,10 +15,10 @@
     termguicolors = true;
     completeopt = "menuone,noselect";
 
-    autoindent = true;
-    expandtab = true;  # Pressing tab will insert spaces instead of a tab character
-    tabstop = 4;       # Make tab look like 4 spaces
-    softtabstop = 4;   # Number of spaces inserted instead of a tab character
-    shiftwidth = 4;    # Number of sapces inserted when indenting
+    # autoindent = true;
+    # expandtab = true;  # Pressing tab will insert spaces instead of a tab character
+    # tabstop = 4;       # Make tab look like 4 spaces
+    # softtabstop = 4;   # Number of spaces inserted instead of a tab character
+    # shiftwidth = 4;    # Number of sapces inserted when indenting
   };
 }

@@ -10,6 +10,14 @@
       ./hardware-configuration.nix
     ];
 
+  # For sway
+  security.polkit.enable = true;
+
+  hardware.opengl.enable = true;
+  environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the GRUB 2 boot loader.
@@ -68,7 +76,7 @@
   users.users.bhubache = {
     isNormalUser = true;
     description = "brandon";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "video" ];
     packages = with pkgs; [
     ];
   };
@@ -89,7 +97,7 @@
   # };
 
   # List services that you want to enable:
-  services.getty.autologinUser = "bhubache";
+  # services.getty.autologinUser = "bhubache";
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

@@ -10,6 +10,37 @@
     ./neovim/default.nix
   ];
 
+  programs.foot = {
+    enable = true;
+    settings = {
+      main.font = "MesloLGS Nerd Font Mono";
+    };
+  };
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+	position = "top";
+	height = 30;
+	modules-center = [ "clock" ];
+        clock = {
+          format = "{ %H:%M }";  # TODO: Link for syntax
+        };
+      };
+    };
+  };
+  wayland.windowManager.sway = {
+    enable = true;
+    checkConfig = true;
+    config = {
+      terminal = "foot";
+      bars = [{ command = "waybar"; }];
+      floating.border = 0;
+      window.border = 0;
+    };
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.

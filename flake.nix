@@ -16,6 +16,10 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # lemurs = {
+    #   url = "github:coastalwhite/lemurs";
+    # };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
