@@ -13,7 +13,7 @@
   programs.foot = {
     enable = true;
     settings = {
-      main.font = "MesloLGS Nerd Font Mono";
+      main.font = "MesloLGS Nerd Font Mono:style=Regular:size=14:pixelsize=15:antialias=true";
     };
   };
   programs.waybar = {
@@ -23,12 +23,19 @@
         layer = "top";
 	position = "top";
 	height = 30;
+	font-family = "MesloLGS Nerd Font Mono";
 	modules-center = [ "clock" ];
-	modules-right = [ "disk" ];
+	modules-right = [ "memory" "cpu" "disk" ];
         clock = {
 	  interval = 1;
           format = "{:%A, %B %d | %r}";  # TODO: Link for syntax
         };
+	memory = {
+	  format = "{}% Memory";
+	};
+	cpu = {
+	  format = "{usage}% CPU";
+	};
 	disk = {
 	  interval = 30;
 	  format = "{specific_free:0.2f} GB free";
@@ -45,6 +52,10 @@
       bars = [{ command = "waybar"; }];
       window.border = 0;
       window.titlebar = false;
+      # fonts = {
+      #   names = [];
+      #   size = 11.0;
+      # };
     };
   };
 
@@ -57,10 +68,13 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  fonts.fontconfig.enable = true;
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     pkgs.ripgrep
+    # pkgs.meslo-lgs-nf
+    (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
