@@ -59,6 +59,19 @@
     };
   };
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      ls = "ls --color=auto";
+      ll = "ls -lah";
+      gs = "git status";
+      ga = "git add";
+      gc = "git commit";
+      gd = "git diff";
+      gl = "git log";
+    };
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
