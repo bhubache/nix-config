@@ -36,8 +36,9 @@
     config = {
       terminal = "foot";
       bars = [{ command = "waybar"; }];
-      floating.border = 0;
+      floating.border = 0;  # TODO: Figure out what this does
       window.border = 0;
+      window.titlebar = false;
     };
   };
 
