@@ -75,6 +75,18 @@
     };
   };
 
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      add_newline = true;
+      format = "$username$hostname$directory$fill$git_branch$git_commit$git_state$git_metrics$git_status$python$line_break$shell$character";
+      directory = {
+        truncation_length = 0;
+      };
+    };
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
