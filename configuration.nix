@@ -10,6 +10,13 @@
       ./hardware-configuration.nix
     ];
 
+  # Enable shell system-wide to make sure necessary files are sourced
+  programs.zsh.enable = true;
+  # Make zsh the default shell for all users
+  users.defaultUserShell = pkgs.zsh;
+  # Enable zsh completion for system packages
+  environment.pathsToLink = [ "/share/zsh" ];
+
   # For sway
   security.polkit.enable = true;
 
