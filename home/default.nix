@@ -24,10 +24,16 @@
 	position = "top";
 	height = 30;
 	modules-center = [ "clock" ];
+	modules-right = [ "disk" ];
         clock = {
 	  interval = 1;
           format = "{:%A, %B %d | %r}";  # TODO: Link for syntax
         };
+	disk = {
+	  interval = 30;
+	  format = "{specific_free:0.2f} GB free";
+	  unit = "GB";
+	};
       };
     };
   };
