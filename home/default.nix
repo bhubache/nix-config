@@ -25,7 +25,8 @@
 	height = 30;
 	modules-center = [ "clock" ];
         clock = {
-          format = "{ %H:%M }";  # TODO: Link for syntax
+	  interval = 1;
+          format = "{:%A, %B %d | %r}";  # TODO: Link for syntax
         };
       };
     };
