@@ -16,6 +16,8 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -38,6 +40,7 @@
 	    home-manager.sharedModules = [
 	      inputs.nixvim.homeManagerModules.nixvim
 	    ];
+	    home-manager.extraSpecialArgs = { inherit inputs; };
 	  }
         ];
       };

@@ -8,7 +8,24 @@
 
   imports = [
     ./neovim/default.nix
+    inputs.xremap-flake.homeManagerModules.default
   ];
+
+  services.xremap = {
+    withWlroots = true;
+    config = {
+      modmap = [
+        {
+	  name = "Caps lock to Left Control/Escape";
+	  KEY_CAPSLOCK = {
+	    held = "KEY_LEFTCTRL";
+	    alone = "KEY_ESC";
+	    alone_timeout_millis = 500;
+	  };
+	}
+      ];
+    };
+  };
 
   programs.foot = {
     enable = true;
