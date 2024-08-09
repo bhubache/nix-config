@@ -22,6 +22,14 @@
     # This argument is mandatory
     image = ./wallpaper.jpg;
 
+    targets.nixvim = {
+      enable = true;
+      transparentBackground = {
+        main = true;
+	signColumn = true;
+      };
+    };
+
     opacity.applications = 0.75;
     opacity.desktop = 0.75;
     opacity.terminal = 0.75;
