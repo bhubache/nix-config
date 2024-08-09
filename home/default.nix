@@ -11,6 +11,13 @@
     inputs.xremap-flake.homeManagerModules.default
   ];
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+  };
+
   services.xremap = {
     withWlroots = true;
     config = {
@@ -31,6 +38,9 @@
     enable = true;
     settings = {
       main.font = "MesloLGS Nerd Font Mono:style=Regular:size=14:pixelsize=15:antialias=true";
+      colors = {
+        alpha = 1;
+      };
     };
   };
   programs.waybar = {
@@ -41,12 +51,30 @@
 	position = "top";
 	height = 30;
 	font-family = "MesloLGS Nerd Font Mono";
+	modules-left = [ "sway/workspaces" ];
 	modules-center = [ "clock" ];
-	modules-right = [ "memory" "cpu" "disk" ];
+	modules-right = [ "pulseaudio" "memory" "cpu" "disk" "battery" ];
         clock = {
 	  interval = 1;
-          format = "{:%A, %B %d | %r}";  # TODO: Link for syntax
+          format = "{:%r}";  # TODO: Link for syntax
         };
+	pulseaudio = {
+	  format = "{volume}% {icon} {format_source}";
+	  format-bluetooth = "{volume}% {icon} {format_source}";
+    	  format-bluetooth-muted = "󰝟 {icon} {format_source}";
+          format-muted = "󰝟  {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+            headphone = "";
+            hands-free = "󱠰";
+            headset = "󰋎";
+            phone = "";
+            portable = "";
+            car = "";
+            default = [ "" "" "" ];
+          };
+	};
 	memory = {
 	  format = "{}% Memory";
 	};
@@ -57,6 +85,18 @@
 	  interval = 30;
 	  format = "{specific_free:0.2f} GB free";
 	  unit = "GB";
+	};
+	battery = {
+	  bat = "BAT1";
+	  states = {
+	    warning = 30;
+	    critical = 15;
+	  };
+	  format = "{capacity}% {icon}";
+	  format-charging = "{capacity}% 󰢝";
+	  format-plugged = "{capacity}% ";
+	  format-alt = "{time} {icon}";
+    	  format-icons = [ "" "" "" "" "" ];
 	};
       };
     };
@@ -120,6 +160,7 @@
     pkgs.ripgrep
     # pkgs.meslo-lgs-nf
     (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; })
+    pkgs.wl-clipboard
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
