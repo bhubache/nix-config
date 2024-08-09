@@ -27,6 +27,10 @@
     };
   };
 
+  programs.bat = {
+    enable = true;
+  };
+
   programs.eza = {
     enable = true;
     enableZshIntegration = true;
@@ -123,6 +127,7 @@
     shellAliases = {
       l = "eza --long --color=always --icons=always --all --all --group --git";
       ls = "ls --color=auto";
+      cat = "bat";
       gs = "git status";
       ga = "git add";
       gc = "git commit";
