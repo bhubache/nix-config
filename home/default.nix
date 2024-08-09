@@ -126,7 +126,6 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       l = "eza --long --color=always --icons=always --all --all --group --git";
-      ls = "ls --color=auto";
       cat = "bat";
       gs = "git status";
       ga = "git add";
