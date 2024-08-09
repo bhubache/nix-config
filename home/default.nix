@@ -27,6 +27,11 @@
     };
   };
 
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.wofi = {
     enable = true;
   };
@@ -116,6 +121,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
+      l = "eza --long --color=always --icons=always --all --all --group --git";
       ls = "ls --color=auto";
       ll = "ls -lah";
       gs = "git status";
