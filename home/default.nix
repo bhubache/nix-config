@@ -27,6 +27,10 @@
     };
   };
 
+  programs.wofi = {
+    enable = true;
+  };
+
   programs.foot = {
     enable = true;
   };
@@ -98,6 +102,7 @@
       bars = [{ command = "waybar"; }];
       window.border = 0;
       window.titlebar = false;
+      menu = "wofi --show=run";
     };
     extraConfig = ''
       blur enable
