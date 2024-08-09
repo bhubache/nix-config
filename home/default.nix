@@ -100,7 +100,8 @@
       window.titlebar = false;
     };
     extraConfig = ''
-      blur on
+      blur enable
+      layer_effects "waybar" blur enable
     '';
   };
 
