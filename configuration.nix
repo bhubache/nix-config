@@ -30,9 +30,10 @@
       };
     };
 
-    opacity.applications = 0.75;
-    opacity.desktop = 0.75;
-    opacity.terminal = 0.75;
+    opacity.applications = 0.85;
+    opacity.desktop = 0.85;
+    opacity.popups = 0.85;
+    opacity.terminal = 0.85;
 
     targets.gtk.enable = true;
     cursor = {
@@ -133,6 +134,7 @@
   environment.systemPackages = with pkgs; [
     git
     vim
+    tree
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

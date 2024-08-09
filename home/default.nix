@@ -90,13 +90,18 @@
   };
   wayland.windowManager.sway = {
     enable = true;
-    checkConfig = true;
+    # TODO: set to ``true`` upon resolution of https://github.com/nix-community/home-manager/issues/5379
+    checkConfig = false;
+    package = pkgs.swayfx;
     config = {
       terminal = "foot";
       bars = [{ command = "waybar"; }];
       window.border = 0;
       window.titlebar = false;
     };
+    extraConfig = ''
+      blur on
+    '';
   };
 
   programs.zsh = {
