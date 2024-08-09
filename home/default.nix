@@ -11,13 +11,6 @@
     inputs.xremap-flake.homeManagerModules.default
   ];
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-  };
-
   services.xremap = {
     withWlroots = true;
     config = {
@@ -36,12 +29,6 @@
 
   programs.foot = {
     enable = true;
-    settings = {
-      main.font = "MesloLGS Nerd Font Mono:style=Regular:size=14:pixelsize=15:antialias=true";
-      colors = {
-        alpha = 1;
-      };
-    };
   };
   programs.waybar = {
     enable = true;
@@ -109,10 +96,6 @@
       bars = [{ command = "waybar"; }];
       window.border = 0;
       window.titlebar = false;
-      # fonts = {
-      #   names = [];
-      #   size = 11.0;
-      # };
     };
   };
 
@@ -158,8 +141,7 @@
   # environment.
   home.packages = [
     pkgs.ripgrep
-    # pkgs.meslo-lgs-nf
-    (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; })
+    # (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; })
     pkgs.wl-clipboard
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

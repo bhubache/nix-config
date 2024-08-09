@@ -18,6 +18,8 @@
     };
 
     xremap-flake.url = "github:xremap/nix-flake";
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -33,6 +35,7 @@
         modules = [
           ./configuration.nix
 	  inputs.home-manager.nixosModules.home-manager
+	  inputs.stylix.nixosModules.stylix
 	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;

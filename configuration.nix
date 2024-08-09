@@ -10,6 +10,38 @@
       ./hardware-configuration.nix
     ];
 
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/darcula.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+
+    # This argument is mandatory
+    image = ./wallpaper.jpg;
+
+    opacity.applications = 0.75;
+    opacity.desktop = 0.75;
+    opacity.terminal = 0.75;
+
+    targets.gtk.enable = true;
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
+
+    fonts = {
+      monospace = {
+        package = pkgs.nerdfonts.override { fonts = [ "Meslo" ]; };
+        name = "MesloLGS Nerd Font Mono:style=Regular:size=14:pixelsize=15:antialias=true";
+      };
+    };
+  };
+
+
   # Enable shell system-wide to make sure necessary files are sourced
   programs.zsh.enable = true;
   # Make zsh the default shell for all users

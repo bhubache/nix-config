@@ -9,7 +9,7 @@
   ];
 
   programs.nixvim = {
-    colorschemes.onedark.enable = true;
+    # colorschemes.onedark.enable = true;
 
     globals.mapleader = " ";
     globals.maplocalleader = " ";
