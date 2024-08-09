@@ -123,7 +123,6 @@
     shellAliases = {
       l = "eza --long --color=always --icons=always --all --all --group --git";
       ls = "ls --color=auto";
-      ll = "ls -lah";
       gs = "git status";
       ga = "git add";
       gc = "git commit";
