@@ -6,6 +6,7 @@
     ./noice.nix
     ./auto-pairs.nix
     ./lsp.nix
+    ./dashboard.nix
   ];
 
   programs.nixvim = {
