@@ -53,6 +53,7 @@
 	    key_format = "%s";
 	  }
 	];
+	footer = [""];
       };
     };
   };
