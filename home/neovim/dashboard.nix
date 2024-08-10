@@ -45,7 +45,7 @@
 	    # key_hl = "Number";
 	  }
 	  {
-	    action = "Telescope live_grep cwd=";
+	    action = "Telescope live_grep";
 	    desc = "Find Text                                    ";
 	    # desc_hl = "String";
 	    icon = "  ";
