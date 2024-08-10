@@ -140,9 +140,13 @@
     enableZshIntegration = true;
     settings = {
       add_newline = true;
-      format = "$username$hostname$directory$fill$git_branch$git_commit$git_state$git_metrics$git_status$python$line_break$shell$character";
+      format = "$username$hostname$directory$fill $git_branch$git_commit$git_state$git_metrics$git_status$python$line_break$shell$character";
       directory = {
         truncation_length = 0;
+      };
+      fill = {
+        symbol = "―";
+	style = "bold green";
       };
     };
   };
