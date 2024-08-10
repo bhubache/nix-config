@@ -148,6 +148,10 @@
         symbol = "―";
 	style = "bold green";
       };
+      python = {
+        format = "$symbol ";
+	symbol = " ";
+      };
     };
   };
 
