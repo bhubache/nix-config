@@ -66,7 +66,6 @@
   # environment.
   home.packages = [
     pkgs.ripgrep
-    # (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; })
     pkgs.wl-clipboard
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
