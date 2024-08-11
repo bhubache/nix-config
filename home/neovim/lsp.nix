@@ -4,7 +4,8 @@
       enable = true;
 
       servers = {
-        pylsp.enable = true;
+        ruff.enable = true;
+	pyright.enable = true;
       };
 
       keymaps.lspBuf = {
