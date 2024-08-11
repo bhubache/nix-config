@@ -10,6 +10,7 @@
     ./neovim/default.nix
     ./bat.nix
     ./eza.nix
+    ./wofi.nix
     inputs.xremap-flake.homeManagerModules.default
   ];
 
@@ -27,10 +28,6 @@
 	}
       ];
     };
-  };
-
-  programs.wofi = {
-    enable = true;
   };
 
   programs.foot = {
