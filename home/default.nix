@@ -9,6 +9,7 @@
   imports = [
     ./neovim/default.nix
     ./bat.nix
+    ./eza.nix
     inputs.xremap-flake.homeManagerModules.default
   ];
 
@@ -26,11 +27,6 @@
 	}
       ];
     };
-  };
-
-  programs.eza = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   programs.wofi = {
