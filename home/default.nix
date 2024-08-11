@@ -11,6 +11,7 @@
     ./bat.nix
     ./eza.nix
     ./wofi.nix
+    ./foot.nix
     inputs.xremap-flake.homeManagerModules.default
   ];
 
@@ -30,9 +31,6 @@
     };
   };
 
-  programs.foot = {
-    enable = true;
-  };
   programs.waybar = {
     enable = true;
     settings = {
