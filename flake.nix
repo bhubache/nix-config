@@ -29,7 +29,7 @@
         inherit system;
       };
     in {
-      nixosConfigurations.my-nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.testvm = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
