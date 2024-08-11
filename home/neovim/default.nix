@@ -7,6 +7,7 @@
     ./auto-pairs.nix
     ./lsp.nix
     ./dashboard.nix
+    ./transparent.nix
   ];
 
   programs.nixvim = {
@@ -40,32 +41,6 @@
 	  "kind"
 	  "menu"
 	];
-      };
-    };
-
-    plugins.transparent = {
-      enable = true;
-      settings = {
-        extra_groups = [
-          "NormalFloat"
-
-	  "TelescopePromptTitle"
-	  "TelescopePromptPrefix"
-	  "TelescopePromptCounter"
-	  "TelescopePromptNormal"
-	  "TelescopePromptBorder"
-
-	  "TelescopeResultsTitle"
-	  "TelescopeResultsNormal"
-	  "TelescopeResultsBorder"
-
-	  "TelescopePreviewTitle"
-	  "TelescopePreviewNormal"
-	  "TelescopePreviewBorder"
-	  
-	  "Pmenu"
-	  "CmpItemAbbr"
-        ];
       };
     };
   };
