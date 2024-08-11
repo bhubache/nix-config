@@ -8,6 +8,7 @@
 
   imports = [
     ./neovim/default.nix
+    ./bat.nix
     inputs.xremap-flake.homeManagerModules.default
   ];
 
@@ -25,10 +26,6 @@
 	}
       ];
     };
-  };
-
-  programs.bat = {
-    enable = true;
   };
 
   programs.eza = {
