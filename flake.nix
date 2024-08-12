@@ -28,23 +28,31 @@
       pkgs = import nixpkgs {
         inherit system;
       };
+      # TODO: Remove unnecessary attributes in argument
+      inherit (nixpkgs) lib;
+      configVars = import ./vars { inherit inputs lib; };
+      configLib = import ./lib { inherit lib; };
+      specialArgs = {
+        inherit inputs configVars configLib;
+      };
     in {
-      nixosConfigurations.testvm = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+      nixosConfigurations.testvm = lib.nixosSystem {
+	inherit specialArgs;
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
 	  inputs.home-manager.nixosModules.home-manager
 	  inputs.stylix.nixosModules.stylix
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.bhubache = import ./home/default.nix;
-	    home-manager.sharedModules = [
-	      inputs.nixvim.homeManagerModules.nixvim
-	    ];
-	    home-manager.extraSpecialArgs = { inherit inputs; };
-	  }
+	  { home-manager.extraSpecialArgs = specialArgs; }
+	  # {
+	  #   # home-manager.useGlobalPkgs = true;
+	  #   # home-manager.useUserPackages = true;
+	  #   # home-manager.users.bhubache = import ./home/default.nix;
+	  #   # home-manager.sharedModules = [
+	  #   #   inputs.nixvim.homeManagerModules.nixvim
+	  #   # ];
+	  #   home-manager.extraSpecialArgs = { inherit specialArgs; };
+	  # }
+	  ./hosts/testvm
         ];
       };
   };

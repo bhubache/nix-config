@@ -1,14 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
+{ inputs, configLib, pkgs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    (configLib.relativeToRoot "hosts/common/core")
+    (configLib.relativeToRoot "hosts/common/users/bhubache")
+  ];
 
   stylix = {
     enable = true;
@@ -20,7 +16,7 @@
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
 
     # This argument is mandatory
-    image = ./wallpaper.jpg;
+    image = configLib.relativeToRoot "./wallpaper.jpg";
 
     targets.nixvim = {
       enable = true;
@@ -50,7 +46,6 @@
     };
   };
 
-
   # Enable shell system-wide to make sure necessary files are sourced
   programs.zsh.enable = true;
   # Make zsh the default shell for all users
@@ -66,8 +61,6 @@
     [[ "$(tty)" == /dev/tty1 ]] && sway
   '';
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;
@@ -81,30 +74,16 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-
-  
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -119,15 +98,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.bhubache = {
-    isNormalUser = true;
-    description = "brandon";
-    extraGroups = [ "wheel" "video" ];
-    packages = with pkgs; [
-    ];
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -145,9 +115,7 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-  # services.getty.autologinUser = "bhubache";
-
+  # TODO: Enable SSH
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
@@ -180,6 +148,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
-
