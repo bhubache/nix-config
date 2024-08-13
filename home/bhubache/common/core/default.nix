@@ -15,6 +15,7 @@
     ./waybar.nix
     ./zsh.nix
     ./starship.nix
+    ./yazi.nix
     inputs.xremap-flake.homeManagerModules.default
   ];
 
