@@ -21,6 +21,8 @@
         
         "Pmenu"
         "CmpItemAbbr"
+
+	"WhichKeyBorder"
       ];
     };
   };
