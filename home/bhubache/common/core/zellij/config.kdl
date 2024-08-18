@@ -1,0 +1,38 @@
+default_layout "compact"
+pane_frames false
+keybinds {
+  normal {
+    unbind "Ctrl p"
+    unbind "Ctrl o"
+    unbind "Ctrl n"
+    bind "Ctrl l" { MoveFocus "right"; }
+    bind "Ctrl h" { MoveFocus "left"; }
+    bind "Ctrl j" { MoveFocus "down"; }
+    bind "Ctrl k" { MoveFocus "up"; }
+  }
+  pane {
+    bind "Ctrl a" { SwitchToMode "Normal"; }
+    bind "l" { NewPane "right"; SwitchToMode "Normal"; Clear; }
+    bind "h" { NewPane "left"; MoveFocus "left"; SwitchToMode "Normal"; Clear; }
+    bind "j" { NewPane "down"; SwitchToMode "Normal"; Clear; }
+    bind "k" { NewPane "up"; MoveFocus "up"; SwitchToMode "Normal"; Clear; }
+  }
+  tab {
+    bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+  }
+  session {
+    bind "Ctrl x" { SwitchToMode "Normal"; }
+  }
+  shared_except "pane" "locked" {
+    bind "Ctrl a" { SwitchToMode "Pane"; }
+  }
+  shared_except "session" "locked" {
+    bind "Ctrl x" { SwitchToMode "Session"; }
+  }
+}
+
+theme "gruvbox-dark"
+
+plugins {
+  zellij-forgot location="zellij:zellij-forgot"
+}

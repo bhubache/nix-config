@@ -16,9 +16,10 @@
     ./zsh.nix
     ./starship.nix
     ./yazi.nix
+    ./zellij
     inputs.xremap-flake.homeManagerModules.default
   ];
-
+  
   services.xremap = {
     withWlroots = true;
     config = {
