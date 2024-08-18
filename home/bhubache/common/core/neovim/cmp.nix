@@ -6,9 +6,7 @@
     enable = true;
     settings = {
       sources = [
-        { name = "nvim_lua"; }
         { name = "nvim_lsp"; }
-        { name = "cmdline"; }
         { name = "path"; }
         { name = "buffer"; }
       ];
