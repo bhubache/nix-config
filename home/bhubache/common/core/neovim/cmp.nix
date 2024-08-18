@@ -21,6 +21,7 @@
         # Closes menu and deletes current selection if any
         "<Esc>" = "cmp.mapping.abort()";
       };
+      completion.completeopt = "menu,menuone,noinsert";
       formatting.fields = [
         "abbr"
         "kind"
