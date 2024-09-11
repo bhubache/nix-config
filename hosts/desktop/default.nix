@@ -17,7 +17,7 @@
       enable = true;
       transparentBackground = {
         main = true;
-	signColumn = true;
+        signColumn = true;
       };
     };
 
@@ -102,6 +102,7 @@
     git
     vim
     tree
+    firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
