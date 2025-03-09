@@ -104,6 +104,7 @@
     vim
     tree
     firefox
+    uv
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
