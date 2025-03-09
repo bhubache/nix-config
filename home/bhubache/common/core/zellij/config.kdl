@@ -2,20 +2,19 @@ default_layout "compact"
 pane_frames false
 keybinds {
   normal {
-    unbind "Ctrl p"
     unbind "Ctrl o"
-    unbind "Ctrl n"
-    bind "Ctrl l" { MoveFocus "right"; }
-    bind "Ctrl h" { MoveFocus "left"; }
-    bind "Ctrl j" { MoveFocus "down"; }
-    bind "Ctrl k" { MoveFocus "up"; }
+    bind "Ctrl m" { MoveFocus "left"; }
+    bind "Ctrl n" { MoveFocus "down"; }
+    bind "Ctrl e" { MoveFocus "up"; }
+    bind "Ctrl i" { MoveFocus "right"; }
+    bind "Ctrl Alt i" { GoToNextTab; }
+    bind "Ctrl Alt m" { GoToPreviousTab; }
   }
   pane {
-    bind "Ctrl a" { SwitchToMode "Normal"; }
-    bind "l" { NewPane "right"; SwitchToMode "Normal"; Clear; }
-    bind "h" { NewPane "left"; MoveFocus "left"; SwitchToMode "Normal"; Clear; }
-    bind "j" { NewPane "down"; SwitchToMode "Normal"; Clear; }
-    bind "k" { NewPane "up"; MoveFocus "up"; SwitchToMode "Normal"; Clear; }
+    bind "m" { NewPane "left"; MoveFocus "left"; SwitchToMode "Normal"; Clear; }
+    bind "n" { NewPane "down"; SwitchToMode "Normal"; Clear; }
+    bind "e" { NewPane "up"; MoveFocus "up"; SwitchToMode "Normal"; Clear; }
+    bind "i" { NewPane "right"; SwitchToMode "Normal"; Clear; }
   }
   tab {
     bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
