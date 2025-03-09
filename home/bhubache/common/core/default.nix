@@ -13,6 +13,7 @@
     ./eza.nix
     ./wofi.nix
     ./ghostty.nix
+    ./lazygit.nix
     ./waybar.nix
     ./zsh.nix
     ./starship.nix
