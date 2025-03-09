@@ -9,6 +9,7 @@
   imports = [
     ./neovim/default.nix
     ./bat.nix
+    ./btop.nix
     ./eza.nix
     ./wofi.nix
     ./ghostty.nix
