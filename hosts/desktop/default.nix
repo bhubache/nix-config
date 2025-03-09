@@ -8,7 +8,8 @@
 
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
 
     # This argument is mandatory
     image = configLib.relativeToRoot "./gruvbox-mountain-village.png";
