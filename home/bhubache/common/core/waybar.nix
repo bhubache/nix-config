@@ -27,7 +27,7 @@
 	};
         clock = {
 	  interval = 1;
-          format = "{:%R %p}";
+          format = "{:%I:%M %p}";
 
 	  # NOTE: https://github.com/Alexays/Waybar/issues/3024
 	  timezone = "America/North_Dakota/Center";
