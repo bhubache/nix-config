@@ -5,7 +5,7 @@
 
       servers = {
         ruff.enable = true;
-	pyright.enable = true;
+	basedpyright.enable = true;
       };
 
       keymaps.lspBuf = {
