@@ -11,7 +11,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
     # This argument is mandatory
-    image = configLib.relativeToRoot "./wallpaper.jpg";
+    image = configLib.relativeToRoot "./gruvbox-mountain-village.png";
 
     targets.nixvim = {
       enable = true;

@@ -11,7 +11,7 @@
     ./bat.nix
     ./eza.nix
     ./wofi.nix
-    ./foot.nix
+    ./ghostty.nix
     ./waybar.nix
     ./zsh.nix
     ./starship.nix
@@ -42,7 +42,7 @@
     checkConfig = false;
     package = pkgs.swayfx;
     config = {
-      terminal = "foot";
+      terminal = "ghostty";
       bars = [{ command = "waybar"; }];
       window.border = 0;
       window.titlebar = false;
