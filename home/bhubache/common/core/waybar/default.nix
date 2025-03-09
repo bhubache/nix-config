@@ -1,11 +1,11 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   programs.waybar = {
     enable = true;
     style = ''
       * {
         border: none;
-	border-radius: 0;
-	font-family: "JetBrains Mono";
+        border-radius: 0;
+        font-family: "JetBrains Mono";
       }
     '';
     settings = {

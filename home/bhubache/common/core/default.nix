@@ -14,7 +14,7 @@
     ./wofi.nix
     ./ghostty.nix
     ./lazygit.nix
-    ./waybar.nix
+    ./waybar
     ./zsh.nix
     ./starship.nix
     ./yazi.nix

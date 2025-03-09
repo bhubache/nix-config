@@ -22,10 +22,10 @@
       };
     };
 
-    opacity.applications = 0.85;
-    opacity.desktop = 0.85;
-    opacity.popups = 0.85;
-    opacity.terminal = 0.85;
+    opacity.applications = 0.8;
+    opacity.desktop = 0.8;
+    opacity.popups = 0.8;
+    opacity.terminal = 0.8;
 
     targets.gtk.enable = true;
     cursor = {
