@@ -5,6 +5,8 @@
     enableZshIntegration = true;
     settings = {
       cursor-style-blink = false;
+      cursor-color = "#ABB2BF";
+      shell-integration-features = "no-cursor";
       background-opacity = 0.8;
       background-blur = 20;
       font-feature = "-calt";  # Disable ligatures
