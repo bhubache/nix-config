@@ -9,6 +9,8 @@ keybinds {
     bind "Ctrl i" { MoveFocus "right"; }
     bind "Ctrl Alt i" { GoToNextTab; }
     bind "Ctrl Alt m" { GoToPreviousTab; }
+    bind "Ctrl Alt Shift m" { MoveTab "Left"; }
+    bind "Ctrl Alt Shift i" { MoveTab "Right"; }
   }
   pane {
     bind "m" { NewPane "left"; MoveFocus "left"; SwitchToMode "Normal"; Clear; }
@@ -30,7 +32,7 @@ keybinds {
   }
 }
 
-theme "gruvbox-dark"
+theme "onedark"
 
 plugins {
   zellij-forgot location="zellij:zellij-forgot"
