@@ -32,13 +32,6 @@
 	    key_format = "%s";
 	  }
 	  {
-	    action = ":ene <BAR> startinsert <CR>";
-	    desc = "New File                                     ";
-	    icon = "  ";
-	    key = "n";
-	    key_format = "%s";
-	  }
-	  {
 	    action = "Telescope live_grep";
 	    desc = "Find Text                                    ";
 	    icon = "  ";
