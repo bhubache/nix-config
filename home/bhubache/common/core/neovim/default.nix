@@ -20,43 +20,43 @@
     defaultEditor = true;
 
     # Navigation on colemak
-    keymaps = [
-      {
-        action = "<cmd>wincmd i<CR>";
-	key = "<C-i>";
-      }
-      {
-        action = "<cmd>wincmd m<CR>";
-	key = "<C-m>";
-      }
-      {
-        action = "<cmd>wincmd n<CR>";
-	key = "<C-n>";
-      }
-      {
-        action = "<cmd>wincmd e<CR>";
-	key = "<C-e>";
-      }
-      {
-        action = "h";
-	key = "m";
-      }
-      {
-        action = "j";
-	key = "n";
-      }
-      {
-        action = "k";
-	key = "e";
-      }
-      {
-        action = "l";
-	key = "i";
-      }
-      {
-        action = "i";
-	key = "h";
-      }
-    ];
+    # keymaps = [
+    #   {
+    #     action = "<cmd>wincmd i<CR>";
+    #     key = "<C-i>";
+    #   }
+    #   {
+    #     action = "<cmd>wincmd m<CR>";
+    #     key = "<C-m>";
+    #   }
+    #   {
+    #     action = "<cmd>wincmd n<CR>";
+    #     key = "<C-n>";
+    #   }
+    #   {
+    #     action = "<cmd>wincmd e<CR>";
+    #     key = "<C-e>";
+    #   }
+    #   {
+    #     action = "h";
+    #     key = "m";
+    #   }
+    #   {
+    #     action = "j";
+    #     key = "n";
+    #   }
+    #   {
+    #     action = "k";
+    #     key = "e";
+    #   }
+    #   {
+    #     action = "l";
+    #     key = "i";
+    #   }
+    #   {
+    #     action = "i";
+    #     key = "h";
+    #   }
+    # ];
   };
 }
