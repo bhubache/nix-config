@@ -61,6 +61,7 @@
   '';
 
   boot.loader.systemd-boot.enable = true;
+  boot.kernelModules = [ "uinput" ];
 
   # Use the GRUB 2 boot loader.
   # boot.loader.grub.enable = true;

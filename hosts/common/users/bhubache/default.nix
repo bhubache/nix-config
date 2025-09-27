@@ -11,9 +11,13 @@
   users.users.${configVars.username} = {
     home = "/home/${configVars.username}";
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [ "wheel" "video" "input" ];
     password = "nixos";
   };
+
+  services.udev.extraRules = ''
+    KERNEL=="uinput", GROUP="input", TAG+="uaccess"
+  '';
  
   # Import the user's home configurations
   home-manager.users.${configVars.username} = import (

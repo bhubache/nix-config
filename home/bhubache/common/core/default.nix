@@ -28,10 +28,12 @@
       modmap = [
         {
 	  name = "Caps lock to Left Control/Escape";
-	  KEY_CAPSLOCK = {
-	    held = "KEY_LEFTCTRL";
-	    alone = "KEY_ESC";
-	    alone_timeout_millis = 500;
+	  remap = {
+	    CapsLock = {
+	      held = "Ctrl_L";
+	      alone = "Esc";
+	      alone_timeout_millis = 500;
+	    };
 	  };
 	}
       ];
