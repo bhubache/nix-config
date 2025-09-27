@@ -1,6 +1,9 @@
 {pkgs, ...}: {
   imports = [
+    ./snacks.nix
     ./telescope.nix
+    ./treesitter.nix
+    ./web-devicons.nix
     ./which-key.nix
     ./options.nix
     ./noice.nix

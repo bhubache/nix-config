@@ -36,8 +36,11 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "Meslo" ]; };
-        name = "MesloLGS Nerd Font Mono:style=Regular:size=14:pixelsize=15:antialias=true";
+        # package = pkgs.nerdfonts.override { fonts = [ "Meslo" ]; };
+	# package = pkgs.nerd-fonts.meslo-lg;
+        # name = "MesloLGS Nerd Font Mono:style=Regular:size=14:pixelsize=15:antialias=true";
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
       };
     };
   };
@@ -52,7 +55,7 @@
   # For sway
   security.polkit.enable = true;
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   environment.loginShellInit = ''
     [[ "$(tty)" == /dev/tty1 ]] && sway
   '';

@@ -12,7 +12,7 @@
     ./btop.nix
     ./eza.nix
     ./wofi.nix
-    ./ghostty.nix
+    ./ghostty/default.nix
     ./lazygit.nix
     ./waybar
     ./zsh.nix
