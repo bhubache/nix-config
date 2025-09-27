@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgsUnstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -22,10 +23,13 @@
     stylix.url = "github:nix-community/stylix/release-25.05";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgsUnstable, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
+        inherit system;
+      };
+      pkgsUnstable = import nixpkgsUnstable {
         inherit system;
       };
       # TODO: Remove unnecessary attributes in argument
@@ -33,7 +37,7 @@
       configVars = import ./vars { inherit inputs lib; };
       configLib = import ./lib { inherit lib; };
       specialArgs = {
-        inherit inputs configVars configLib;
+        inherit inputs configVars configLib pkgsUnstable;
       };
     in {
       nixosConfigurations.desktop = lib.nixosSystem {
