@@ -4,6 +4,9 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    initContent = ''
+      bindkey '^R' history-incremental-search-backward
+    '';
     shellAliases = {
       l = "eza --long --color=always --icons=always --all --all --group --git";
       cat = "bat";
