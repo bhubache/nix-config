@@ -17,7 +17,7 @@
         # Pull up menu
         "<C-k>" = "cmp.mapping.complete()";
         # Closes menu and deletes current selection if any
-        "<Esc>" = "cmp.mapping.abort()";
+        # "<Esc>" = "cmp.mapping.abort()";
       };
       completion.completeopt = "menu,menuone,noinsert";
       formatting.fields = [

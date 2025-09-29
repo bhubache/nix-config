@@ -22,6 +22,13 @@
     enable = true;
     defaultEditor = true;
 
+    keymaps = [
+      {
+        action = "<Esc><Esc>";
+        key = "<Esc>";
+      }
+    ];
+
     # Navigation on colemak
     # keymaps = [
     #   {
