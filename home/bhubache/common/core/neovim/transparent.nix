@@ -18,11 +18,20 @@
         "TelescopePreviewTitle"
         "TelescopePreviewNormal"
         "TelescopePreviewBorder"
-        
+
         "Pmenu"
         "CmpItemAbbr"
 
 	"WhichKeyBorder"
+	"WhichKeyIcon"
+	"WhichKeyFloat"
+	"WhichKeySeparator"
+
+	"NoiceCmdlinePopupBorderSearch"
+	"NoiceCmdlineIcon"
+	"NoiceCmdlineIconSearch"
+
+	"BufferVisibleIcon"
       ];
     };
   };
