@@ -21,9 +21,14 @@
     xremap-flake.url = "github:xremap/nix-flake";
 
     stylix.url = "github:nix-community/stylix/release-25.05";
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgsUnstable, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgsUnstable, nixos-generators, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
