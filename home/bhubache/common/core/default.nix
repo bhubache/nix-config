@@ -53,9 +53,9 @@
       menu = "wofi --show=run";
     };
     extraConfigEarly = ''
-      output DP-1 mode 1920x1080@239.760Hz
-      output DP-2 mode 1920x1080@239.760Hz
-      output DP-3 mode 1920x1080@239.760Hz
+      output DP-2 mode 1920x1080@239.760Hz pos 0 0
+      output DP-3 mode 1920x1080@239.760Hz pos 1920 0
+      output DP-1 mode 1920x1080@239.760Hz pos 3840 0
     '';
     extraConfig = ''
       blur enable
