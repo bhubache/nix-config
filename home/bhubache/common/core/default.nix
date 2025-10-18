@@ -57,6 +57,10 @@
       output DP-3 mode 1920x1080@239.760Hz pos 1920 0
       output DP-1 mode 1920x1080@239.760Hz pos 3840 0
 
+      workspace 1 output DP-2
+      workspace 2 output DP-3
+      workspace 3 output DP-1
+
       input type:pointer {
         accel_profile "flat"
 	pointer_accel 0.5

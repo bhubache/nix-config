@@ -20,9 +20,9 @@
 	spacing = 10;
 	"sway/workspaces" = {
 	  persistent-workspaces = {
-	    "1" = ["eDP-1"];
-	    "2" = ["eDP-2"];
-	    "3" = ["eDP-3"];
+	    "1" = ["DP-2"];
+	    "2" = ["DP-3"];
+	    "3" = ["DP-1"];
 	  };
 	};
         clock = {
