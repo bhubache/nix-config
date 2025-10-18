@@ -8,6 +8,11 @@
   ...
 }:
 {
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    ruff
+  ];
+
   users.users.${configVars.username} = {
     home = "/home/${configVars.username}";
     isNormalUser = true;
