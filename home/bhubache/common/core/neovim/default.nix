@@ -27,6 +27,24 @@
         action = "<Esc><Esc>";
         key = "<Esc>";
       }
+
+      # Navigate between splits
+      {
+        action = "<C-w>h";
+        key = "<C-h>";
+      }
+      {
+        action = "<C-w>j";
+        key = "<C-j>";
+      }
+      {
+        action = "<C-w>k";
+        key = "<C-k>";
+      }
+      {
+        action = "<C-w>l";
+        key = "<C-l>";
+      }
     ];
 
     # Navigation on colemak
