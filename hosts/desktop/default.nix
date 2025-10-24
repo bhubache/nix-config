@@ -78,7 +78,7 @@
 
   # NOTE: If you see intermittent wifi connection issues, uncomment the
   # 	  following line.
-  # networking.networkmanager.wifi.powersave = false;
+  networking.networkmanager.wifi.powersave = false;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
