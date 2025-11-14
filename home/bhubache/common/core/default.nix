@@ -63,7 +63,7 @@
 
       input type:pointer {
         accel_profile "flat"
-        pointer_accel 0.4
+        pointer_accel 0.2
       }
     '';
     extraConfig = ''
