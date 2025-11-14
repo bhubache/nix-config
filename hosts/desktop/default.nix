@@ -118,6 +118,7 @@
     firefox
     uv
     qutebrowser
+    devenv
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
