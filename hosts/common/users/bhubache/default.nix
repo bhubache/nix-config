@@ -13,10 +13,18 @@
     ruff
   ];
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   users.users.${configVars.username} = {
     home = "/home/${configVars.username}";
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "input" ];
+    extraGroups = [ "wheel" "video" "input" "docker" ];
     password = "nixos";
   };
 
