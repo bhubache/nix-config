@@ -6,6 +6,10 @@
       servers = {
         ruff.enable = true;
 	basedpyright.enable = true;
+	hls = {
+	  enable = true;
+	  installGhc = true;
+	};
       };
 
       keymaps.lspBuf = {
