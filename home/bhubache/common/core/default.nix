@@ -19,10 +19,12 @@
     ./starship.nix
     ./yazi.nix
     ./zellij
+    ./diff-so-fancy.nix
     inputs.xremap-flake.homeManagerModules.default
   ];
-  
+
   services.xremap = {
+    enable = true;
     withWlroots = true;
     config = {
       modmap = [

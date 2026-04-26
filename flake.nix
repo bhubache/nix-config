@@ -67,7 +67,7 @@
 	  #   # home-manager.useUserPackages = true;
 	  #   # home-manager.users.bhubache = import ./home/default.nix;
 	  #   # home-manager.sharedModules = [
-	  #   #   inputs.nixvim.homeManagerModules.nixvim
+	  #   #   inputs.nixvim.homeModules.nixvim
 	  #   # ];
 	  #   home-manager.extraSpecialArgs = { inherit specialArgs; };
 	  # }

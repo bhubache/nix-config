@@ -1,6 +1,6 @@
 {pkgs, inputs, ...}: {
   # TODO: Can this be moved to neovim/default.nix?
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+  imports = [ inputs.nixvim.homeModules.nixvim ];
 
   programs.nixvim.plugins.cmp = {
     enable = true;
