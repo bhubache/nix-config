@@ -20,5 +20,9 @@
         "K" = "hover";
       };
     };
+
+    cornelis = {
+      enable = true;
+    };
   };
 }
