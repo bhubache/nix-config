@@ -25,4 +25,12 @@
       enable = true;
     };
   };
+
+  programs.nixvim.extraConfigLua = ''
+    vim.lsp.config['rust_analyzer'] = {
+      cmd = { "rust-analyzer" },
+    }
+    vim.lsp.enable('rust_analyzer')
+  '';
+
 }
