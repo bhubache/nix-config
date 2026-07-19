@@ -13,6 +13,7 @@
     ./transparent.nix
     ./cmp.nix
     ./lualine.nix
+    ./dap.nix
   ];
 
   programs.nixvim = {
