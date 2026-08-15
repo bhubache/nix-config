@@ -1,29 +1,41 @@
 {pkgs, ...}: {
-  programs.nixvim.plugins = {
-    lsp = {
-      enable = true;
+  programs.nixvim = {
+    plugins = {
+      lsp = {
+        enable = true;
 
-      servers = {
-        ruff.enable = true;
-	basedpyright.enable = true;
-	hls = {
-	  enable = true;
-	  installGhc = true;
-	};
+        servers = {
+          ruff.enable = true;
+          basedpyright.enable = true;
+          hls = {
+            enable = true;
+            installGhc = true;
+          };
+        };
+
+        keymaps.lspBuf = {
+          "gd" = "definition";
+          "gD" = "references";
+          "gt" = "type_definition";
+          "gi" = "implementation";
+          "K" = "hover";
+        };
       };
 
-      keymaps.lspBuf = {
-        "gd" = "definition";
-        "gD" = "references";
-        "gt" = "type_definition";
-        "gi" = "implementation";
-        "K" = "hover";
+      cornelis = {
+        enable = true;
       };
     };
 
-    cornelis = {
-      enable = true;
-    };
+
+    extraConfigLua = ''
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.rs",
+        callback = function()
+          vim.lsp.buf.format({ async = false})
+        end,
+      })
+    '';
   };
 
 }
