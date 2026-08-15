@@ -35,6 +35,9 @@
           vim.lsp.buf.format({ async = false})
         end,
       })
+
+      -- Allow virtual text for inlay hints
+      vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
     '';
   };
 
