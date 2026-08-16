@@ -16,10 +16,6 @@
 
     targets.nixvim = {
       enable = true;
-      transparentBackground = {
-        main = true;
-        signColumn = true;
-      };
     };
 
     opacity.applications = 0.8;

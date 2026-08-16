@@ -10,7 +10,6 @@
     ./auto-pairs.nix
     ./lsp.nix
     ./dashboard.nix
-    ./transparent.nix
     ./cmp.nix
     ./lualine.nix
     ./dap.nix
