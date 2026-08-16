@@ -90,6 +90,9 @@ in {
       }
     ];
 
+    # Use rust-analyzer from nixpkgs if the environment doesn't provide one.
+    extraPackagesAfter = [pkgs.rust-analyzer-unwrapped];
+
     extraConfigLua = ''
       vim.g.rustaceanvim = {
         server = {

@@ -14,6 +14,7 @@
     ./cmp.nix
     ./lualine.nix
     ./dap.nix
+    ./codesettings.nix
   ];
 
   programs.nixvim = {
