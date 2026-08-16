@@ -94,10 +94,45 @@ in {
     extraPackagesAfter = [pkgs.rust-analyzer-unwrapped];
 
     extraConfigLua = ''
+      vim.lsp.config('rust-analyzer', {
+        before_init = function(init_params, config)
+          local codesettings = require('codesettings')
+          codesettings.with_local_settings(config.name, config)
+          if config.default_settings and config.default_settings[config.name] then
+            init_params.initializationOptions = config.default_settings[config.name]
+          end
+        end,
+      })
+
       vim.g.rustaceanvim = {
         server = {
           auto_attach = true,
-          cmd = { "rust-analyzer" },
+          cmd = function()
+            local bufname = vim.api.nvim_buf_get_name(0)
+            local root = vim.fs.root(bufname, { '.vscode', '.git' })
+              or vim.fs.root(bufname, { 'Cargo.toml' })
+            if root then
+              local ok, cs = pcall(require, 'codesettings')
+              if ok then
+                local temp = { name = 'rust-analyzer', root_dir = root }
+                cs.with_local_settings('rust-analyzer', temp)
+                local extra_env = vim.tbl_get(temp, 'settings', 'rust-analyzer', 'server', 'extraEnv')
+                if extra_env and type(extra_env) == 'table' and not vim.tbl_isempty(extra_env) then
+                  local cmd = { 'env' }
+                  for k, v in pairs(extra_env) do
+                    table.insert(cmd, k .. '=' .. tostring(v))
+                  end
+                  table.insert(cmd, 'rust-analyzer')
+                  return cmd
+                end
+              end
+            end
+            return { 'rust-analyzer' }
+          end,
+          root_dir = function(filename, _)
+            return vim.fs.root(filename, { '.vscode', '.git' })
+              or vim.fs.root(filename, { 'Cargo.toml' })
+          end,
         },
         dap = {
           adapter = require('rustaceanvim.config').get_codelldb_adapter(
