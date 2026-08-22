@@ -20,6 +20,7 @@
     ./yazi.nix
     ./zellij
     ./diff-so-fancy.nix
+    ./obsidian.nix
     inputs.xremap-flake.homeManagerModules.default
   ];
 

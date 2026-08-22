@@ -26,6 +26,11 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    obsidian-extensions = {
+      url = "github:karaolidis/nix-obsidian-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgsUnstable, nixos-generators, ... }@inputs:
@@ -44,33 +49,29 @@
       specialArgs = {
         inherit inputs configVars configLib pkgsUnstable;
       };
+      sharedModules = [
+        inputs.home-manager.nixosModules.home-manager
+        inputs.stylix.nixosModules.stylix
+        # { nixpkgs.overlays = [ inputs.obsidian-extensions.overlays.default ]; }
+        {
+          home-manager.extraSpecialArgs = specialArgs;
+          home-manager.sharedModules = [
+            { nixpkgs.overlays = [ inputs.obsidian-extensions.overlays.default ]; }
+          ];
+        }
+      ];
     in {
       nixosConfigurations.desktop = lib.nixosSystem {
         inherit specialArgs;
         system = "x86_64-linux";
-        modules = [
-	  inputs.home-manager.nixosModules.home-manager
-	  inputs.stylix.nixosModules.stylix
-	  { home-manager.extraSpecialArgs = specialArgs; }
+        modules = sharedModules ++ [
 	  ./hosts/desktop
         ];
       };
       nixosConfigurations.testvm = lib.nixosSystem {
 	inherit specialArgs;
         system = "x86_64-linux";
-        modules = [
-	  inputs.home-manager.nixosModules.home-manager
-	  inputs.stylix.nixosModules.stylix
-	  { home-manager.extraSpecialArgs = specialArgs; }
-	  # {
-	  #   # home-manager.useGlobalPkgs = true;
-	  #   # home-manager.useUserPackages = true;
-	  #   # home-manager.users.bhubache = import ./home/default.nix;
-	  #   # home-manager.sharedModules = [
-	  #   #   inputs.nixvim.homeModules.nixvim
-	  #   # ];
-	  #   home-manager.extraSpecialArgs = { inherit specialArgs; };
-	  # }
+        modules = sharedModules ++ [
 	  ./hosts/testvm
         ];
       };
@@ -78,10 +79,7 @@
       nixosConfigurations.laptop = lib.nixosSystem {
 	inherit specialArgs;
         system = "x86_64-linux";
-        modules = [
-	  inputs.home-manager.nixosModules.home-manager
-	  inputs.stylix.nixosModules.stylix
-	  { home-manager.extraSpecialArgs = specialArgs; }
+        modules = sharedModules ++ [
 	  ./hosts/laptop
         ];
       };
